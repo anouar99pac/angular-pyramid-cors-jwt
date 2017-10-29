@@ -1,0 +1,33 @@
+/*@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+FIXME ME I will import all css here
+*/
+
+body {
+    background: #ffffff;
+}
+
+.fa_custom {
+    color: #0099CC
+}
+
+.ui-treenode-label {
+    color: #7e204d;
+}
+
+main {
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+    background: red;
+}
+
+h1 {
+    color: red;
+}
+
+.help-block {
+    font-size: 12px;
+}

@@ -1,0 +1,62 @@
+<div xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:metal="http://xml.zope.org/namespaces/metal" i18n:domain="neteven_international" tal:define="global session modules/neteven.utilities.session;
+                 is_account_manager python:session.isAccountManager(request);
+                 constants nocall:modules/neteven2.core.constants;" metal:define-macro="exportModele" tal:omit-tag="">
+
+    <!--
+     <option value="fr" style="background: url(&quot;/@@/static/img/flags/fr.gif&quot;)
+                    no-repeat scroll 3px center transparent; padding-left: 23px;">
+                France
+            </option>
+    -->
+    <label class="formLabel" for="form.language" i18n:translate="ihm.languages.select"> Choisissez une langue: </label>
+    <select name="form.language" dojoType="dijit.form.FilteringSelect">
+        <option value="fr" i18n:translate="ihm.languages.fr">Fran&ccedil;ais</option>
+        <option value="en" i18n:translate="ihm.languages.en">English/Anglais</option>
+        <option value="de" i18n:translate="ihm.languages.de">Deutsch/Allemand</option>
+        <option value="es" i18n:translate="ihm.languages.es">Espagnol</option>
+        <option value="it" i18n:translate="ihm.languages.it">Italien</option>
+        <option value="en_US" i18n:translate="ihm.languages.en_US">Anglais Américain</option>
+        <option value="zh" i18n:translate="ihm.languages.zh">Chinois</option>
+    </select><br/>
+    <br/>
+    <tal:block tal:condition="is_account_manager">
+        <label class="formLabel" for="form.currency_id" i18n:translate="ihm.currencies.select"> Choisissez une devise: </label>
+        <select name="form.currency_id" dojoType="dijit.form.FilteringSelect">
+            <option value="EUR" i18n:translate="ihm.currencies.EUR">Euro</option>
+            <option value="GBP" i18n:translate="ihm.currencies.GBP">Livre Sterling</option>
+            <option value="USD" i18n:translate="ihm.currencies.USD">US Dollar</option>
+            <option value="RMB" i18n:translate="ihm.currencies.RMB">Renminbi chinois</option>
+        </select><br/>
+        <br/>
+    </tal:block>
+    <label class="formLabel" for="form.model_id" i18n:translate="ihm.exports.select_model"> Sélectionner le modèle d'exportation : </label>
+    <select name="form.model_id" dojoType="dijit.form.FilteringSelect">
+        <option value="-1" i18n:translate="ihm.exports.model_full">Export complet</option>
+        <span tal:omit-tag="" tal:repeat="item context">
+            <option tal:attributes="value item/feed_model_id" tal:content="item/name" />
+        </span>
+    </select>
+    <br />
+    <br />
+    <label class="formLabel" for="form.encoding" i18n:translate="ihm.exports.select_encoding"> Choisissez un encodage : </label>
+    <select name="form.encoding" dojoType="dijit.form.FilteringSelect">
+        <option value="cp1252" i18n:translate="ihm.exports.encoding_cp1252"> Windows (cp1252) </option>
+        <option value="utf-8" i18n:translate="ihm.exports.encoding_utf8"> Universel (utf-8)</option>
+    </select><br/><br/>
+    <label class="formLabel" for="delimiter" i18n:translate="ihm.exports.select_delimiter"> Séparateur : </label>
+    <select name="form.delimiter" dojoType="dijit.form.FilteringSelect">
+        <option value="TAB" i18n:translate="ihm.exports.delimiter_tab"> Tabulation </option>
+        <option value="semicolon" i18n:translate="ihm.exports.delimiter_semicolon" selected> Point-virgule (export par défaut)</option>
+        <option value="comma" i18n:translate="ihm.exports.delimiter_comma"> Virgule </option>
+        <option value="pipe" i18n:translate="ihm.exports.delimiter_pipe"> Barre verticale (pipe)</option>
+    </select><br/><br/>
+    <label class="formLabel" for="quotechar" i18n:translate="ihm.exports.select_quotechar"> Délimiteur : </label>
+    <select name="form.quotechar" dojoType="dijit.form.FilteringSelect">
+        <option value="none" i18n:translate="ihm.exports.quotechar_none" selected> Aucun (export par défaut)</option>
+        <option value="quote" i18n:translate="ihm.exports.quotechar_quote"> Guillemets (&quot;) </option>
+        <option value="apos" i18n:translate="ihm.exports.quotechar_apos"> Quote (&apos;) </option>
+    </select>
+    <!--<div style="color: red;padding-top:10px;">Vous ne pouvez pas exporter plus de 5 000 produits pour le moment.<br />
+        Merci de contacter le support ou votre contact Neteven.</div>-->
+
+</div>

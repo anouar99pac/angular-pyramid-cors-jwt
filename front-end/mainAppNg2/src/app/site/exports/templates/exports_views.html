@@ -1,0 +1,77 @@
+<p>Export:</p>
+<div>
+    <!--<div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" [(ngModel)]="test" #name>
+        </div>-->
+
+    <div class="row form-group">
+        <label class="col-md-2" for="form.header">Header du fichier en:</label>
+        <span class="col-md-2">
+            <select class="form-control" id="form.header" [(ngModel)]="export.header" required>
+                <option value="fr" i18n:translate="ihm.languages.fr">Fran&ccedil;ais</option>
+                <option value="en" i18n:translate="ihm.languages.en">English/Anglais</option>
+            </select>
+        </span>
+    </div>
+
+    <div class="row form-group">
+        <label class="col-md-2" for="form.langue">Langue:</label>
+        <span class="col-md-2">
+        <select class="form-control" id="form.langue" [(ngModel)]="export.langue" required>
+            <option value="fr" i18n:translate="ihm.languages.fr">Fran&ccedil;ais</option>
+            <option value="en" i18n:translate="ihm.languages.en">English/Anglais</option>
+            <option value="de" i18n:translate="ihm.languages.de">Deutsch/Allemand</option>
+            <option value="es" i18n:translate="ihm.languages.es">Espagnol</option>
+            <option value="it" i18n:translate="ihm.languages.it">Italien</option>
+            <option value="en_US" i18n:translate="ihm.languages.en_US">Anglais Américain</option>
+            <option value="zh" i18n:translate="ihm.languages.zh">Chinois</option>
+        </select>
+        </span>
+    </div>
+
+    <div class="row form-group">
+        <label class="col-md-2" for="form.encoding">Choisissez un encodage :</label>
+        <span class="col-md-2">
+        <select class="form-control" id="form.encoding" [(ngModel)]="export.encoding" required>
+            <option value="cp1252" i18n:translate="ihm.exports.encoding_cp1252"> Windows (cp1252) </option>
+            <option value="utf-8" i18n:translate="ihm.exports.encoding_utf8"> Universel (utf-8)</option>
+        </select>
+        </span>
+    </div>
+
+    <div class="row form-group">
+        <label class="col-md-2" for="form.separator">Séparateur :</label>
+        <span class="col-md-2">
+        <select class="form-control" id="form.separator" [(ngModel)]="export.separator" required>
+            <option value="TAB" i18n:translate="ihm.exports.delimiter_tab"> Tabulation </option>
+            <option value="semicolon" i18n:translate="ihm.exports.delimiter_semicolon" selected> Point-virgule (export par défaut)</option>
+            <option value="comma" i18n:translate="ihm.exports.delimiter_comma"> Virgule </option>
+            <option value="pipe" i18n:translate="ihm.exports.delimiter_pipe"> Barre verticale (pipe)</option>
+        </select>
+        </span>
+    </div>
+
+    <div class="row form-group">
+        <label class="col-md-2" for="form.delimiter">Délimiteur :</label>
+        <span class="col-md-2">
+        <select class="form-control" id="form.delimiter" [(ngModel)]="export.delimator" required>
+            <option value="none" i18n:translate="ihm.exports.quotechar_none" selected> Aucun (export par défaut)</option>
+            <option value="quote" i18n:translate="ihm.exports.quotechar_quote"> Guillemets (&quot;) </option>
+            <option value="apos" i18n:translate="ihm.exports.quotechar_apos"> Quote (&apos;) </option>
+        </select>
+        </span>
+    </div>
+
+    <div class="form row" *dynamicComponent="template; context: bindings;">
+    </div>
+    <ul class="pager">
+        <li class="">
+            <button type="button" class="btn btn-error" (click)="cancel()"> Annuler</button>
+        </li>
+        <li class="">
+            <button type="button" (click)="valid()" class="btn btn-success">Valider</button>
+        </li>
+    </ul>
+</div>
+<router-outlet></router-outlet>

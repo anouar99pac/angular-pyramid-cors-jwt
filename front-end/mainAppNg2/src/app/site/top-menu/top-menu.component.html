@@ -1,0 +1,10 @@
+<header class="l-header">
+    <ul class="top-menu disable-link-styles">
+        <li *ngIf="!(isLogged$ | async)">
+            <a routerLinkActive="menu-active" routerLink="login">Login</a>
+        </li>
+        <li *ngIf="isLogged$ | async">
+            <a (click)="logout()">Logout</a>
+        </li>
+    </ul>
+</header>

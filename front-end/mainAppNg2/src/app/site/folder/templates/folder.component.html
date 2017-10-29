@@ -1,0 +1,18 @@
+<html>
+<div style="height:320px;overflow-y:scroll;">
+    <fieldset>
+        <legend>Dossier :</legend>
+        <p-tree [value]="items" selectionMode="single" [(selection)]="selectedItem" (onNodeSelect)="nodeSelect($event)"></p-tree>
+    </fieldset>
+</div>
+<div>
+    <md-checkbox class="example-margin" [(ngModel)]="catChecked"> Assigner la règle de catégorisation du dossier aux produits</md-checkbox>
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-error" (click)="cancel()"> Annuler</button>
+    <span style="width:5px;"></span>
+    <button type="button" (click)="confirm()" class="btn btn-success">Valider</button>
+</div>
+
+</html>
