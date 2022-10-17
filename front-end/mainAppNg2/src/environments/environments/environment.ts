@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  url: 'https://int-evenmarketplaces.neteven.com/'
+  url: 'https://you_web_site_url'
 };
